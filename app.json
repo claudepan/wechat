@@ -10,5 +10,16 @@
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh":true,
     "backgroundTextStyle":"dark"
+  },
+   "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "发布",
+      "iconPath": "resource/send.png"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "搜索",
+      "iconPath": "resource/search.png"
+    }]
   }
 }
