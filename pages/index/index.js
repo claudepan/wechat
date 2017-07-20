@@ -1,26 +1,63 @@
-//index.js
-//获取应用实例
-var app = getApp()
+
+var app = getApp(),
+    deviceInfo = app.globalData.deviceInfo;
+
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    latitude: "",
+    longitude: "",
+    controls: [
+      {
+        id: 1,
+        iconPath: "/resource/pin.png",
+        position: {
+          left: deviceInfo.windowWidth / 2 - 10,
+          top: (deviceInfo.windowHeight - 42) / 2 -26,
+          width: 20,
+          height: 26
+        }
+      },
+      {
+        id: 2,
+        iconPath: "/resource/center.png",
+        position: {
+          left: 20,
+          top: deviceInfo.windowHeight - 92,
+          width: 30,
+          height: 30
+        },
+        clickable: true
+      }
+    ]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+
+  onShow: function() {
+    wx.getLocation({
+      type: "gcjo2",
+      success: this.handleGetLocationSucc.bind(this)
+    });
   },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+
+  handleGetLocationSucc: function(res) {
+    this.setData({
+      longitude: res.longitude,
+      latitude: res.latitude
+    });
+  },
+
+  onShareAppMessage: function() {
+    return {
+      title: "书香遍地",
+      path: "/pages/index/index"
+    };
+  },
+   onReady: function (e) {
+    this.mapCtx = wx.createMapContext('map')
+  },
+  handleControlTap: function(e) {
+      var id = e.controlId;
+      if(id = 2){
+        this.mapCtx.moveToLocation();
+      }
   }
-})
+});

@@ -1,25 +1,10 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/publish/publish"
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh":true,
-    "backgroundTextStyle":"dark"
-  },
-   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "发布",
-      "iconPath": "resource/send.png"
-    }, {
-      "pagePath": "pages/logs/logs",
-      "text": "搜索",
-      "iconPath": "resource/search.png"
-    }]
+    "navigationBarBackgroundColor": "#03bbd5",
+    "navigationBarTextStyle":"white"
   }
 }
