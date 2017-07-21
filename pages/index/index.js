@@ -1,6 +1,6 @@
 
 var app = getApp(),
-    deviceInfo = app.globalData.deviceInfo;
+  deviceInfo = app.globalData.deviceInfo;
 
 Page({
   data: {
@@ -12,7 +12,7 @@ Page({
         iconPath: "/resource/pin.png",
         position: {
           left: deviceInfo.windowWidth / 2 - 10,
-          top: (deviceInfo.windowHeight - 42) / 2 -26,
+          top: (deviceInfo.windowHeight - 42) / 2 - 26,
           width: 20,
           height: 26
         }
@@ -30,34 +30,34 @@ Page({
       }
     ]
   },
-
-  onShow: function() {
+  onReady: function (e) {
+    this.mapCtx = wx.createMapContext('map')
+  },
+  onShow: function () {
     wx.getLocation({
-      type: "gcjo2",
+      type: "gcj02",
       success: this.handleGetLocationSucc.bind(this)
     });
   },
 
-  handleGetLocationSucc: function(res) {
+  handleGetLocationSucc: function (res) {
     this.setData({
       longitude: res.longitude,
       latitude: res.latitude
     });
   },
 
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
     return {
       title: "书香遍地",
       path: "/pages/index/index"
     };
   },
-   onReady: function (e) {
-    this.mapCtx = wx.createMapContext('map')
-  },
-  handleControlTap: function(e) {
-      var id = e.controlId;
-      if(id = 2){
-        this.mapCtx.moveToLocation();
-      }
+  
+  handleControlTap: function (e) {
+    var id = e.controlId;
+    if (id = 2) {
+      this.mapCtx.moveToLocation();
+    }
   }
 });

@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="map-con">
     <!-- map.wxml -->
-    <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location controls="{{controls}}" bindcontroltap="handleControlTap"
-        scale="16" style="width: 100%; height: 100%;"></map>
+    <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location controls="{{controls}}" bindcontroltap="handleControlTap"
+         style="width: 100%; height: 100%;"></map>
 </view>
 <view class="bottom-area">
      <navigator url="/pages/publish/publish" class="publish">发布</navigator>
