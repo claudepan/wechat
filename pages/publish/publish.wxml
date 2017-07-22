@@ -1,4 +1,4 @@
-<block>
+<block wx:if="{{!success}}">
   <view class="area">
     <text class="area-title">我的地址</text>
     <view class="area-info" bindtap="handleAddressTap">{{address}}</view>
@@ -32,11 +32,5 @@
 </block>
 
 <block wx:if="{{success}}">
-  <view class="wrapper">
-    <view class="succ-title">
-      <icon class="succ-icon" type="success" size="40" color="#22cad3" />恭喜您,发布成功！</view>
-    <view class="succ-item">1. 审核通过后信息将被展示在地图上</view>
-    <view class="succ-item">2. 信息有效期为30天,30天后自动清除</view>
-    <view class="btn" bindtap="handleBackHome">返回首页</view>
-  </view>
+  <include src="success.wxml"/>
 </block>
